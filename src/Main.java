@@ -5,9 +5,14 @@ import java.util.concurrent.ForkJoinPool;
 public class Main {
 
     public static void main(String[] args) {
-        String folderPath = "C:/Users/Work/Downloads";
+        ParametersBag bag = new ParametersBag(args);
+
+        System.exit(0);
+
+        String folderPath = bag.getPath();
+        long sizeLimit = bag.getLimit();
         File file = new File(folderPath);
-        Node root = new Node(file);
+        Node root = new Node(file,sizeLimit);
 
         long start = System.currentTimeMillis();
 
